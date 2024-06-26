@@ -2,7 +2,7 @@
 
 void Login::execute(const DataBaseConnection& dataBase) {
 	std::string password;
-	std::cout << "            Login         \nEmail: ";
+	std::cout << "Login\nEmail: ";
 	std::cin >> email;
 	std::cout << "Password: ";
 	std::cin >> password;
@@ -26,9 +26,9 @@ void Login::loginFunctions(const DataBaseConnection& dataBase) const {
 			switch (command) {
 			case 1: changeName(dataBase); break;
 			case 2: changePassword(dataBase); break;
-			case 3: break;
+			case 3: std::cout << "Successfull logout!\n"; break;
 			default: {
-				std::cout << "Invalid command. Try again!";
+				std::cout << "Invalid command. Try again!\n";
 				break;
 			}
 			}
@@ -41,7 +41,7 @@ void Login::loginFunctions(const DataBaseConnection& dataBase) const {
 }
 
 void Login::changePassword(const DataBaseConnection& dataBase) const {
-	std::cout << "Enter new password: ";
+	std::cout << "Change password \nEnter new password: ";
 	std::string newPassword;
 	std::cin >> newPassword;
 	isValidPassword(newPassword);
@@ -58,7 +58,7 @@ void Login::changeName(const DataBaseConnection& dataBase) const {
 	std::string newName;
 	std::cin.ignore();
 	char buffer[1024];
-	std::cout << "Enter new name: ";
+	std::cout << "Change name \nEnter new name: ";
 	std::cin.getline(buffer, 1024);
 	newName = buffer;
 	isValidName(newName);

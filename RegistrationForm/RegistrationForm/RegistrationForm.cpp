@@ -1,6 +1,3 @@
-// RegistrationForm.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include "Registration.h"
 #include "Login.h"
@@ -12,15 +9,21 @@ void printRegistrationOrLogin() {
 }
 
 Function* factory() {
-	char command = '\0';
+	std::string a;
 	printRegistrationOrLogin();
 	std::cout << "Enter digit: ";
-	std::cin >> command;
-	switch (command) {
-	case '1': return new Login();
-	case '2': return new Registration();
-	case '3': throw 0;
-	default: throw std::invalid_argument("Invalid command\n");
+	std::cin >> a;
+	if (a == "1") {
+		return new Login();
+	}
+	else if (a == "2") {
+		return new Registration();
+	}
+	else if (a == "3") {
+		throw 0;
+	}
+	else {
+		throw std::invalid_argument("Invalid command\n");
 	}
 }
 
