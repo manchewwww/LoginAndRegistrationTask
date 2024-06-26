@@ -10,7 +10,9 @@ void Registration::execute(const DataBaseConnection& dataBase) {
 		std::cout << "Email: ";
 		std::cin >> email;
 		isValidEmail(email);
-		dataBase.emaillExists(email);
+		if (dataBase.emaillExists(email)) {
+			throw std::invalid_argument("User with this email exist\n");
+		}
 		std::cout << "Password: ";
 		std::cin >> password;
 		isValidPassword(password);
