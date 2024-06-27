@@ -9,17 +9,18 @@ void printRegistrationOrLogin() {
 }
 
 Function* factory() {
-	std::string a;
+	std::string command;
 	printRegistrationOrLogin();
 	std::cout << "Enter digit: ";
-	std::cin >> a;
-	if (a == "1") {
+	std::getline(std::cin, command);
+
+	if (command == "1") {
 		return new Login();
 	}
-	else if (a == "2") {
+	else if (command == "2") {
 		return new Registration();
 	}
-	else if (a == "3") {
+	else if (command == "3") {
 		throw 0;
 	}
 	else {
